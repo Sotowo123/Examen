@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Ej1.css') }}">
+
+    <title>Ejercicio 2 - Login</title>
+
+    <style>
+        /* Estilos básicos para centrar el contenido */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+            margin: 5px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        p {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Iniciar sesión</h1>
+        <form method="POST">
+            <label for="nombre">Nombre de usuario:</label>
+            <input type="text" id="nombre" name="nombre" value="{{ nombre if nombre else '' }}" required><br>
+
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" value="{{ contraseña if contraseña else '' }}" required><br>
+
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        {% if correcto1 %}
+            <p>{{ correcto1 }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
